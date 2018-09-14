@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试demo</title>
+    <link type="text/css" rel="stylesheet" href="md.css">
+    <script type="text/javascript" src="showdown.min.js" ></script>
+    <script>
+        function doConvert()
+        {
+            var converter = new showdown.Converter(
+                {
+                    'noHeaderId': true,
+                }
+            );
+            var text = document.getElementById('markdownArea').value;
+            document.getElementById('htmlArea').innerHTML = converter.makeHtml(text);
+        }
+    </script>
+</head>
+<body>
+<div style="display:inline-block;width:100%;">
+    <div style="width: 50%;height:800px;overflow-y:auto;float:left;">
+        <textarea style="width: 100%;height: 100%" id="markdownArea"></textarea>
+    </div>
+    <div style="width: 50%;overflow-y:auto;float:left;">
+        <div id="htmlArea" class="markdown-body" style="height:800px;"></div>
+    </div>
+    <div style="width: 100%;margin-top:50px;text-align: center;float:left;"><button onclick="doConvert();">md 转换 html</button></div>
+</div>
+</body>
+</html>
